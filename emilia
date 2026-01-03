@@ -1,0 +1,84 @@
+#characters
+default reality_crack = 0
+default helped_amyra = 0
+
+#characters
+define alex = Character("Alex")
+define amyra = Character("Amyra")
+define rowan = Character("Rowan")
+define daniel = Character("Daniel")
+define intercom = Character("Intercom Voice")
+
+
+
+label start:
+
+    play music "ambient_dull_hum.mp3" loop
+    scene apartment_morning_dull  
+
+"The apartment is neat, clean, and perfectly beige. The alarm sounds at 07:00 AM."
+
+ alex "Same time. Same coffee. Same destination. There is a strange, profound comfort in knowing exactly how the next eight hours will unfold. Deviation is unnecessary. The predictability is the point."
+
+ #done
+ label metro station:
+    show map_metro_line_a 
+
+   alex "Line A, Platform 3. The only line that matters. It always gets me there. It’s reliable. It’s predictable. And that predictability is my anchor."
+
+#done
+label metro station:
+
+    scene metro_entrance_routine
+"Alex walks, not runs, into the metro—a portrait of automated existence."
+
+#done
+label metro station:
+ scene metro_platform_normal
+
+  alex "07:28 AM. Two minutes to Line A. The perfect amount of time to wait. Any shorter, and I'd feel rushed. Any longer, and I'd have to think."
+Pause 1.0
+
+"The expected whoosh of approaching air never comes. A faint, sickening hum begins."
+
+#done
+label metro station:
+scene metro_platform_clock
+"The station clock reads 07:30:00. The seconds hand ticks once, twitches violently, and then freezes. The air feels heavy."
+
+intercom "We apologize for the delay. Line A is temporarily suspended. Please wait."
+
+alex "Suspended? That's not normal. Line A is the engine of the city. (Scans the platform, recognizing the others.) The faces... I’ve seen this exact disappointment before. I’ve felt this exact moment of inertia."
+
+"The Status Quo Revealed: Alex is trapped in a psycho-temporal loop. The routine has become a time loop because it lacks conscious intention and is fueled only by stagnation. The train cannot move Alex forward until the underlying psychological blockage is cleared."
+
+#done
+label metro station:
+scene metro_platform_crowd
+"Another deviation. Can’t people just maintain order?"
+$ reality_crack += 2
+
+#done
+label metro station:
+scene metro_platform_crowd
+
+alex "Another deviation. Can’t people just maintain order?"
+menu:
+        "Help Amyra":
+            jump help_amyra
+
+        "Don’t help Amyra":
+            jump ignore_amyra
+#done
+label help_amyra:
+$ trust_amyra += 1
+$ reality_crack += 1
+
+#done
+
+label ignore_amyra:
+
+    #done
+    # This ends the game.
+
+    return
